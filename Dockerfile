@@ -1,4 +1,4 @@
-FROM hashicorp/packer:1.4.3
+FROM hashicorp/packer:1.7.8
 
 LABEL "com.github.actions.name"="ami-build"
 LABEL "com.github.actions.description"="build and ami using packer"
