@@ -5,10 +5,10 @@ LABEL "com.github.actions.description"="build and ami using packer"
 LABEL "com.github.actions.icon"="check-square"
 LABEL "com.github.actions.color"="blue"
 
-RUN apk add --no-cache jq
-RUN apk add --no-cache python3
-RUN pip3 install awscli
-RUN pip3 install boto3
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 jq && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools awscli boto3
 
 ADD entrypoint.sh /entrypoint.sh
 
